@@ -1,0 +1,29 @@
+.App {
+ margin: 20px;
+  
+}
+
+h1 {
+  color : hsl(240, 45%, 50%);
+  font-size: 90px;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 50px;
+  color : hsl(240, 26%, 61%);
+
+}
+
+
+.App-link {
+  color: #c02323;
+}
+
+
+
+
+
+
+
+
