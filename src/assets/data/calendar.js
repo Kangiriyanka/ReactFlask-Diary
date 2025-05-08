@@ -1,10 +1,13 @@
-// Months object 
 
-// Check if a year is a leap year 
-function isLeapYear(year) {
+export function isLeapYear(year) {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }
 
+// Pass the date as a string in the format "YYYY-MM-DD you silly goose 
+export function getDayOfTheWeek(year, month) {
 
-// Default is used only when you want to export one value.
-export default isLeapYear;
+    const date = new Date(year, month , 1);
+    console.log(date.getDay())
+    return date.getDay();
+}
+
