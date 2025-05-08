@@ -7,13 +7,11 @@ import {getDayOfTheWeek, isLeapYear} from "../../assets/data/calendar.js"
 import "../../assets/styles/calendar.scss"
 
 function Calendar() {
-
+    
+    const date = new Date()
     const minYear = 2000;
-    const maxYear = 2100;
+    const maxYear = date.getFullYear()
     const {year, month} = useParams()
-  
-
-   
     const daysOfTheWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     const calendar = {
       "January": 31,
@@ -30,21 +28,23 @@ function Calendar() {
       "December": 31,
   
   }
+//   Hooks 
     const [months] = useState(Object.keys(calendar))
     const [index, setIndex] = useState(Object.keys(calendar).indexOf(month))
     const [currentMonth, setCurrentMonth] = useState(months[index])
     const [days, setDays] = useState([])
     const [firstDayOfTheMonth, setFirstDayOfTheMonth] = useState(0)
+    const [currentYear, setCurrentYear] = useState(parseInt(year,10))
 
     // Whenever the month changes, update the days. 
     // [currentMonth] is what the hook is watching for.
     useEffect(() => {
         
-        setFirstDayOfTheMonth(getDayOfTheWeek(year, index))
+        setFirstDayOfTheMonth(getDayOfTheWeek(currentYear, index))
         setDays(createDays(calendar[currentMonth] ));
-    }, [currentMonth]);
+    }, [currentMonth, currentYear]);
 
-   
+    // Validate the year and month
     function validateYear(year) {
         const yearNum = parseInt(year, 10);
         if (isNaN(yearNum)) {
@@ -58,6 +58,27 @@ function Calendar() {
             return true;
         }
         return false;
+
+    }
+
+// Ordinary functions
+
+    function handleNextYear() {           
+        
+        if (currentYear + 1 > maxYear) {
+            return;
+        }
+        setCurrentYear(currentYear + 1)
+        console.log(currentYear)
+        
+    }
+
+    function handlePreviousYear() {
+
+        if (currentYear -1 < minYear) {
+            return ;
+        }
+        setCurrentYear(currentYear - 1)
 
     }
 
@@ -80,66 +101,40 @@ function Calendar() {
         return days
     }
 
-    // Whenever the month changes, update the days, if it's an empty array, it will only run once when the components mounts.
- 
-    /**
-     * Sets the calendar to the next month.
-     *
-     * - Increments the `index` state by 1.
-     * - Prevents incrementing if the index is already at the last month.
-     * - Updates the current month based on the new index.
-     */
-    function handleNextMonth() {
-        
-        let newIndex = index + 1 
-       
-        if (newIndex > months.length - 1) {
-            return;
-
-        }
-
-        setIndex(newIndex)
-        setCurrentMonth(months[newIndex])
-
-
-    }
-
-
-    /**
-     * Sets the calendar to the previous month.
-     *
-     * - Decrements the `index` state by 1.
-     * - Prevents decrementing if the index is already at the month.
-     * - Updates the current month based on the new index.
-     */
-    function handlePreviousMonth() {
    
-        let newIndex = index - 1 
-       
-        if (newIndex < 0)  {
-            return;
-        }
+    function changeMonth(newIndex) {
         setIndex(newIndex)
         setCurrentMonth(months[newIndex])
-    }
 
-  
+
+    }
 
     return (
 
         <div className= "calendar-container"> 
     
             <div className= "year-month-container">
-            <h2> {year} </h2>
-            <h1 onClick={handleNextMonth}>  {currentMonth}  </h1>
-            
+                
+            <div className= "previous-triangle" onClick ={handlePreviousYear} > </div> 
+            <h1> {currentYear} </h1>
+         
+            <div className= "next-triangle" onClick = {handleNextYear} >  </div> 
+
             </div>
-            <div className= "buttons-container">
-            <div className= "previous-triangle" onClick= {handlePreviousMonth}> </div> 
-            <div className= "next-triangle" onClick= {handleNextMonth}>  </div> 
-          
+         
+            <div className = "months-container">
+                {months.map((month, index) => (
+                 
+                    <div 
+                    key={index} 
+                    onClick = {() => changeMonth(index)} 
+                    className={`month ${currentMonth === month ? 'active' : ''}`}>
+                        {month}
+                    </div>
+                ))}
             </div>
             <div className= "day-of-week-container">
+     
             {daysOfTheWeek.map((day, index) => (
                 <div  key={index} className= "day-of-week">
                     {day}
@@ -147,7 +142,7 @@ function Calendar() {
             ))}
            
             </div>
-            <MonthGrid  key = {currentMonth} offset = {firstDayOfTheMonth} month= {currentMonth} days={days} year={year} />
+            <MonthGrid  key = {currentMonth} offset = {firstDayOfTheMonth} month= {currentMonth} days={days} year={currentYear} />
             
             
             

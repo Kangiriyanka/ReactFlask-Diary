@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import EmptySquare from "./EmptySquare.jsx";
 
 function MonthGrid(props) {
-let customStyle = {color: "black"}
+
 const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
 
 
@@ -17,12 +17,12 @@ const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
        {emptySquares.map((day) => (
 
             
-                <EmptySquare />
+                <EmptySquare key ={day} />
             )
        )}
 
        {props.days.map((day) => (
-            <Square key={day} day={day} month={props.month} year={props.year} customStyle={customStyle} />
+            <Square key={day} day={day} month={props.month} year={props.year}  />
         ))}
         
    
