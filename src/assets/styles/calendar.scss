@@ -33,9 +33,17 @@
 
     flex-direction: row;
     
+
 }
 
 
+  /* CSS  Styles for the Calendar componet */
+
+  .calendar-container {
+    padding: 1rem;
+    
+    
+  }
   
   
   /* CSS for MonthGrid  component */
@@ -123,6 +131,7 @@
   .year-month-container {
     display: flex;
     flex-direction: row;
+    
   }
 
 

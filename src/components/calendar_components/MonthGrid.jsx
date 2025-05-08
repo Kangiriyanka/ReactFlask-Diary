@@ -6,7 +6,6 @@ import EmptySquare from "./EmptySquare.jsx";
 function MonthGrid(props) {
 let customStyle = {color: "black"}
 const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
-console.log(props.days)
 
 
     // Create an array of days in the current month
@@ -24,7 +23,7 @@ console.log(props.days)
 
        {props.days.map((day) => (
             <Square key={day} day={day} month={props.month} year={props.year} customStyle={customStyle} />
-        ))};
+        ))}
         
    
 

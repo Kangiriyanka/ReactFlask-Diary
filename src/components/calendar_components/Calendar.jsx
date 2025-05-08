@@ -2,12 +2,18 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import MonthGrid from "./MonthGrid.jsx"
+import EmptyView from "../general_components/EmptyView.jsx"
 import {getDayOfTheWeek, isLeapYear} from "../../assets/data/calendar.js"
 import "../../assets/styles/calendar.scss"
 
 function Calendar() {
 
-    const {year} = useParams()
+    const minYear = 2000;
+    const maxYear = 2100;
+    const {year, month} = useParams()
+  
+
+   
     const daysOfTheWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     const calendar = {
       "January": 31,
@@ -25,10 +31,42 @@ function Calendar() {
   
   }
     const [months] = useState(Object.keys(calendar))
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(Object.keys(calendar).indexOf(month))
     const [currentMonth, setCurrentMonth] = useState(months[index])
     const [days, setDays] = useState([])
     const [firstDayOfTheMonth, setFirstDayOfTheMonth] = useState(0)
+
+    // Whenever the month changes, update the days. 
+    // [currentMonth] is what the hook is watching for.
+    useEffect(() => {
+        
+        setFirstDayOfTheMonth(getDayOfTheWeek(year, index))
+        setDays(createDays(calendar[currentMonth] ));
+    }, [currentMonth]);
+
+   
+    function validateYear(year) {
+        const yearNum = parseInt(year, 10);
+        if (isNaN(yearNum)) {
+            return false;
+        }
+        return yearNum >= minYear && yearNum <= maxYear;
+    }
+
+    function validateMonth(month) {
+        if (Object.keys(calendar).includes(month)) {
+            return true;
+        }
+        return false;
+
+    }
+
+
+    if (!validateYear(year) || !validateMonth(month)) {
+        return <EmptyView />;
+    }
+
+ 
     
 
     // Returns an array of integers corresponding to the # of days in the given month
@@ -43,11 +81,7 @@ function Calendar() {
     }
 
     // Whenever the month changes, update the days, if it's an empty array, it will only run once when the components mounts.
-    useEffect(() => {
-        setFirstDayOfTheMonth(getDayOfTheWeek(year, index))
-        setDays(createDays(calendar[currentMonth] ));
-    }, [currentMonth]);
-
+ 
     /**
      * Sets the calendar to the next month.
      *
@@ -56,9 +90,9 @@ function Calendar() {
      * - Updates the current month based on the new index.
      */
     function handleNextMonth() {
-       
-        let newIndex = index + 1 
         
+        let newIndex = index + 1 
+       
         if (newIndex > months.length - 1) {
             return;
 
@@ -81,6 +115,7 @@ function Calendar() {
     function handlePreviousMonth() {
    
         let newIndex = index - 1 
+       
         if (newIndex < 0)  {
             return;
         }
@@ -92,8 +127,8 @@ function Calendar() {
 
     return (
 
-        <div> 
-
+        <div className= "calendar-container"> 
+    
             <div className= "year-month-container">
             <h2> {year} </h2>
             <h1 onClick={handleNextMonth}>  {currentMonth}  </h1>
@@ -112,7 +147,7 @@ function Calendar() {
             ))}
            
             </div>
-            <MonthGrid  offset = {firstDayOfTheMonth} month= {currentMonth} days={days} year={year} />
+            <MonthGrid  key = {currentMonth} offset = {firstDayOfTheMonth} month= {currentMonth} days={days} year={year} />
             
             
             
