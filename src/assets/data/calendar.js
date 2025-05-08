@@ -7,7 +7,6 @@ export function isLeapYear(year) {
 export function getDayOfTheWeek(year, month) {
 
     const date = new Date(year, month , 1);
-    console.log(date.getDay())
     return date.getDay();
 }
 

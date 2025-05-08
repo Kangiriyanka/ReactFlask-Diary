@@ -6,14 +6,14 @@ function Square(props) {
    
  
     return (
-        <div className="calendar-square">
 
-<Link  className="day-entry" to={{pathname: `/calendar/days/${props.year}/${props.month}/${props.day}`}} >
-            <div className= "day-number "  style={{...props.customStyle}} > {props.day} </div>
-</Link>
-           
+        <Link className="calendar-square" to={{pathname: `/calendar/days/${props.year}/${props.month}/${props.day}`}}>
 
+          <div  className="day-entry">
+            <div className= "day-number "  > {props.day} </div>
         </div>
+
+        </Link>
     )
 
 

@@ -6,10 +6,7 @@ function EmptySquare(props) {
    
  
     return (
-        <div className="calendar-square">
-
-        
-        </div>
+        <div className="calendar-square"> </div>
     )
 
 
