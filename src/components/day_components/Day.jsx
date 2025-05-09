@@ -46,15 +46,15 @@ function Day() {
         const seconds = /[2]$/;
         const thirds = /[3]$/;
 
-        if (firsts.exec(day) && day !=11) {
+        if (firsts.exec(day) && day !== 11) {
             return "st";
         }
 
-        else if  (seconds.exec(day) && day !=12 )  {
+        else if  (seconds.exec(day) && day !== 12 )  {
             return "nd";
         }
 
-        else if  (thirds.exec(day) && day !=13) {
+        else if  (thirds.exec(day) && day !== 13) {
             return "rd";
         }
 
