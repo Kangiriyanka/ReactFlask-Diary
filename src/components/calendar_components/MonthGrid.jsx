@@ -1,30 +1,41 @@
 import React from "react";
 import Square from "./Square.jsx"
 import { motion } from "framer-motion"
-
+import EmptySquare from "./EmptySquare.jsx";
 
 function MonthGrid(props) {
 
+const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
 
-let customStyle = {color: "black"}
 
     // Create an array of days in the current month
- 
-    return (
+    
+   return (
+  <div className="monthGrid">
+    
         
-        <div className = "monthGrid">
+       {emptySquares.map((day) => (
+
             
-             {props.days.map((day) =>
-            //  Every odd number , add a background 
-             
-             <Square key= {day}  customStyle= {day % 2 == 0 ? customStyle : ""} day = {day} month= {props.month} year={props.year} />)}
-             
-             
-        </div>
-            
+                <EmptySquare key ={day} />
+            )
+       )}
+
+       {props.days.map((day) => (
+            <Square key={day} day={day} month={props.month} year={props.year}  />
+        ))}
+        
+   
+
+       
+    
+
+
+  </div>
+);
            
-    )
 }
+
 
 
 export default MonthGrid; 
