@@ -2,6 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react';
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import parse from "html-react-parser"
 import "../../assets/styles/days.scss"
 
 
@@ -27,6 +28,7 @@ function Day() {
               setDayTitle(res["day_title"])
               setDayContent(res["day_content"])
               setDate(res["date"])
+              console.log(res["day_content"])
              
             })
           
@@ -71,7 +73,7 @@ function Day() {
         <div className = "day-box" contenteditable="true"> 
             <h1> {month} {day}{addDayPrefix()} {year} </h1>
             <h2 className= "day-title"> {dayTitle} </h2>
-            <p> {dayContent} </p>
+            {parse(dayContent)} 
             <Link  className="edit-entry" to={{pathname: `edit/`}} state = {{edit_title: dayTitle , edit_content: dayContent}}> Edit </Link>
            
            

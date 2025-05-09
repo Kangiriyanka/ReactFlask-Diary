@@ -1,40 +1,59 @@
-$big: 40px;
+$big: 1.5rem;
+$base-text-color: hsl(240, 45%, 50%);
+$gentle-blue-color:  rgb(108, 167, 243);
 $dayBackground: rgb(158, 186, 158);
 
 @mixin form-input {
-    width: 25%;
-    height: 50px;
-    margin: 40px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: beige;
-    font-size: 16px;
-    resize: none;
-}
+  
 
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid navy;  // Only a bottom border
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: #007BFF;
+    outline: none;
+    border-bottom: 1x solid #007BFF; // Bottom border changes color on focus
+  }
+}
 
 
 
 form {
-    
+ 
     display: flex;
     flex-direction: column;
     
 
+    label {
+      
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      color: $base-text-color;
+      font-size: $big
+    }
+
+   
+    
+
 }
 
-form label {
-    
-   font-size: $big
-    
-
-}
 
 .submit-button {
    
-   
+   margin: 1rem;
+   width: 10rem;
+   height: 2rem;
+   font-size: 1rem;
+ 
+   border-radius: 0.5rem;
+   border: 0.5px solid gray;
+
+   background-color: $gentle-blue-color;
 }
 
 
@@ -50,6 +69,7 @@ form label {
   }
 
 .edit-day-box {
+  position: relative;
   padding: 1.5rem;
 
   h1 {
@@ -57,13 +77,14 @@ form label {
   }
 }
 
+
 .ql-toolbar {
-  background-color: rgb(108, 167, 243);
+  background-color: $gentle-blue-color;
   max-width: 70%;
   
 }
 
-.ql-editor {
+.ql-container {
   background-color: rgba(255, 255, 255, 0.507);
   max-width: 70%;
   

@@ -44,11 +44,11 @@ function QuillEditor({ content, onChange }) {
     quillRef.current = new Quill(editorRef.current, options)
     quillRef.current.setText(content)
     quillRef.current.on("text-change", () => {
-      const newContent = quillRef.current.getContents()
+      const newContent = quillRef.current.getSemanticHTML()
       onChange(newContent)
   
     });
-  }, [content]);
+  }, []);
 
   return <div ref={editorRef} />;
 }
