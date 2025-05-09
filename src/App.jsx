@@ -6,6 +6,7 @@ import Day from "./components/day_components/Day.jsx"
 import EditDay from "./components/day_components/EditDay.jsx"
 import Home from "./components/general_components/Home.jsx"
 import EmptyView from "./components/general_components/EmptyView.jsx"
+import Header from "./components/general_components/Header.jsx"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <div className="App">
     
     <BrowserRouter>
+    <Header/>
     <Routes>
 
     <Route exact path="/" element={<Home />} />

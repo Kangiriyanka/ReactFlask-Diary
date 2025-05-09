@@ -46,6 +46,13 @@ $darkbasecolor: hsl(250,80%, 20%);
   
 }
 
+.calendar-container {
+  position: relative;
+  padding: 3rem;
+
+  
+}
+
 // Year Components
 
 .year-month-container {
@@ -69,14 +76,7 @@ $darkbasecolor: hsl(250,80%, 20%);
 }
 
 
-  /* CSS  Styles for the Calendar componet */
 
-  .calendar-container {
- 
-    padding: 2rem;
-    
-    
-  }
   
   
   /* CSS for MonthGrid  component */

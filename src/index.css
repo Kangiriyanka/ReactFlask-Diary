@@ -1,7 +1,8 @@
 html {
-
+  
   margin: 0;
   height: 100vh;
+  overflow: auto;
   background-color: #359aff45;
   
  
@@ -27,3 +28,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
