@@ -1,5 +1,6 @@
 $basecolor: hsl(250,80%, 40%);
 $darkbasecolor: hsl(250,80%, 20%);
+$gentle-blue-color:  rgb(108, 167, 243);
 
 // Mixins 
 @mixin left-triangle {
@@ -105,7 +106,7 @@ $darkbasecolor: hsl(250,80%, 20%);
   
   .calendar-square {
     position: relative;
-    background-color:  hwb(240 55% 5%);
+    background-color:  $gentle-blue-color;
     display: inline-block;
     text-align: center;
     height: 90px;
@@ -126,10 +127,10 @@ $darkbasecolor: hsl(250,80%, 20%);
     display: block;
     background-image: conic-gradient(
       from var(--angle),
-       hsla(230, 100%, 65%, 0.4),
+      rgb(108, 167, 243),
+  hsla(240, 66%, 37%, 0.7),
   hsla(240, 100%, 60%, 0.7),
-  hsla(240, 100%, 60%, 0.7),
-  hsla(230, 100%, 65%, 0.4),
+  rgb(108, 167, 243),
 
 
     );

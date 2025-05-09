@@ -10,6 +10,7 @@
     "axios": "^1.6.4",
     "flask": "^0.2.10",
     "framer-motion": "^11.2.10",
+    "html-react-parser": "^5.2.4",
     "pip": "^0.0.1",
     "quill": "^2.0.3",
     "react": "^18.3.1",
