@@ -1,17 +1,19 @@
 import React from "react"
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar"
+
 
 
 function Header(props) {
     
+  
+    
+   
     return (
-        <nav>
+        
+          <Navbar/>
        
-        <ul>
-          <li><a href="/calendar/2023">Calendar 1</a></li>
-     
-        </ul>
-      </nav>
+        
+ 
     )
 
 
