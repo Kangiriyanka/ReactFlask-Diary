@@ -1,39 +1,28 @@
+
 .App {
   width: 100%;
   height: 100%;
 }
 
-h1 {
-  color : hsl(240, 45%, 50%);
-  font-size: 4rem;
-  padding: 10px;
-}
-
-h2 {
-  font-size: 2.5rem;
-  color : hsl(240, 26%, 61%);
-
-}
-
 
 .navbar {
-  position: "fixed";
-  background: #0c0c0b;
-  font-family: Verdana;
+
+  background:#0B415A;
   text-align:center;
-  color: #CDCDCD;
-  padding: 0.5rem;
+  color:#000C66;
+  padding: 0.1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   
 
   li {
-      font-size: 24px;
-      display: inline
+      font-size: 2rem;
+      display: inline;
   }
 
   a {
-      color: #e8e8e8;
+      color: var(--link-color);
       text-decoration: none;
-      padding: 20px 16px;
+      margin-right: 1rem;
       &:hover {
       
       text-decoration: underline;
@@ -42,9 +31,47 @@ h2 {
 }
 
 
-.App-link {
-  color: #c02323;
+
+.button-38 {
+  background-color:#0d506f;
+  border: 0;
+  border-radius: .5rem;
+  width: 20rem;
+  height: 3rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Ronzino";
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #4c75b4 solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+
+.button-38:hover {
+  background-color:#1a2049;
+}
+
+.button-38:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+  box-shadow: none;
+}
+
+
+
+
+
 
 
 

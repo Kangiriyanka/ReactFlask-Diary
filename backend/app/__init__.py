@@ -26,4 +26,5 @@ def create_app(config_class = Config):
   
     return app
 
+# SQLAlchemy needs to know about the models
 from app import models

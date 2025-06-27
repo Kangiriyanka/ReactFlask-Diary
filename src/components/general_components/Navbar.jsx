@@ -7,7 +7,7 @@ function Navbar(props) {
     const currentYear = currentDate.getFullYear()
     const currentMonth = currentDate.getMonth() 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
+    
     return (
         <nav className="navbar">
             <ul>

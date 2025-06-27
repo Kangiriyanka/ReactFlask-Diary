@@ -41,7 +41,7 @@ def populate_days():
     click.echo("Succesfully added all the dates")
 
 
-@bp.cli.command('/remove_table')
+@bp.cli.command('/drop-table')
 @click.argument('table_name')
 def drop_table(table_name):
     try:

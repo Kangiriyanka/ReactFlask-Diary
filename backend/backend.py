@@ -101,14 +101,13 @@ def edit_day_entry(year,month,day):
     
     date_to_query = formatDate(year,month,day)
     
-    new_editted_title = request.form["dayTitle"]
-    new_editted_content = request.form["dayContent"]
+    new_edited_title = request.form["dayTitle"]
+    new_edited_content = request.form["dayContent"]
     
     diary_entry = DiaryEntry.query.filter_by(date= date_to_query).first()
-    print(diary_entry)
-    diary_entry.day_title = new_editted_title
+    diary_entry.day_title = new_edited_title
     
-    diary_entry.day_content = new_editted_content
+    diary_entry.day_content = new_edited_content
     db.session.commit()
     
     

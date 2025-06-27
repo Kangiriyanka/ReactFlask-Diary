@@ -11,11 +11,6 @@ import Header from "./components/general_components/Header.jsx"
 function App() {
 
 
-
-
-
-
-  
   return (
     <div className="App">
     
@@ -32,7 +27,6 @@ function App() {
 
       
     </Routes>
-    
     </BrowserRouter>
       
     </div>

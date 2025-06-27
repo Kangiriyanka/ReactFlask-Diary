@@ -69,7 +69,7 @@ function Calendar() {
             return;
         }
         setCurrentYear(currentYear + 1)
-        console.log(currentYear)
+    
         
     }
 
@@ -116,7 +116,7 @@ function Calendar() {
             <div className= "year-month-container">
                 
             <div className= "previous-triangle" onClick ={handlePreviousYear} > </div> 
-            <h1> {currentYear} </h1>
+            <h1 style = {{color: "var(--custom-black)"}}> {currentYear} </h1>
          
             <div className= "next-triangle" onClick = {handleNextYear} >  </div> 
 
@@ -133,6 +133,7 @@ function Calendar() {
                     </div>
                 ))}
             </div>
+    
             <div className= "day-of-week-container">
      
             {daysOfTheWeek.map((day, index) => (
@@ -143,7 +144,7 @@ function Calendar() {
            
             </div>
             <MonthGrid  key = {currentMonth} offset = {firstDayOfTheMonth} month= {currentMonth} days={days} year={currentYear} />
-            
+           
             
             
             

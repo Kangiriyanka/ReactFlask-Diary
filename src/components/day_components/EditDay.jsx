@@ -55,7 +55,7 @@ function EditDay() {
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
           />
-             <button className= "submit-button" type="submit">Edit Diary Entry </button>
+             <button className= "button-38" type="submit">Edit Diary Entry </button>
         </label>
 
         <QuillEditor content ={content} onChange ={setContent}/>
@@ -69,5 +69,6 @@ function EditDay() {
     </div>
   );
 }
+
 
 export default EditDay;

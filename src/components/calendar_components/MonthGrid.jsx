@@ -1,6 +1,5 @@
 import React from "react";
 import Square from "./Square.jsx"
-import { motion } from "framer-motion"
 import EmptySquare from "./EmptySquare.jsx";
 
 function MonthGrid(props) {
@@ -11,9 +10,7 @@ const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
     // Create an array of days in the current month
     
    return (
-  <div className="monthGrid">
-    
-        
+  <div className="month-grid">
        {emptySquares.map((day) => (
 
             
