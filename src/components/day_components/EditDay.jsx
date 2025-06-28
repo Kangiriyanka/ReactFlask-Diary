@@ -4,6 +4,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getDayPrefix } from "../../assets/data/calendar";
 import QuillEditor from "./QuillEditor"
 import axios from "axios";
+import parse from "html-react-parser"
 import "../../assets/styles/days.scss"
 
 function EditDay() {
@@ -39,6 +40,7 @@ function EditDay() {
     };
 
     sendDataToFlask(data);
+
   }
 
   return (

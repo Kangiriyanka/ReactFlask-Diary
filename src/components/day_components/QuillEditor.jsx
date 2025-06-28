@@ -12,6 +12,7 @@ function QuillEditor({ content, onChange }) {
   useEffect(() => {
     
     if (quillRef.current) return;
+    
 
     const toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -42,6 +43,7 @@ function QuillEditor({ content, onChange }) {
 
     quillRef.current = new Quill(editorRef.current, options)
     quillRef.current.setText(content)
+    quillRef.current.clipboard.dangerouslyPasteHTML(0, content)
     quillRef.current.on("text-change", () => {
       const newContent = quillRef.current.getSemanticHTML()
       onChange(newContent)

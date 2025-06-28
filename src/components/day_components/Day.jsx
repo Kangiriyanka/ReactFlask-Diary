@@ -37,8 +37,8 @@ function Day() {
         <div className = "day-box" contentEditable="true"> 
             <h2> {month} {day}{getDayPrefix(day)} {year} </h2>
            
-      
-            <h3   className= "day-title"> { dayTitle} </h3>
+          
+            <h3  className= "day-title"> { dayTitle} </h3>
             <article>
 
             
