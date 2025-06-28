@@ -3,6 +3,33 @@
   width: 100%;
   height: 100%;
 }
+.key-box {
+  position: relative;
+  margin: 0 auto;
+  width: 30rem;
+  background-color:  #3795b449;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  margin: -2rem;
+  font-size: 1.4rem;
+  border: 0.5px solid var(--custom-black);
+  padding: 1rem;
+}
+
+.key {
+ position: relative;
+ display: inline-block;
+ justify-items: center;
+ width: 2rem;
+ font-weight: bold;
+ padding: 0.5rem;
+ background-color:  #2256679d;
+ text-align: center;
+  border: 1px solid #2252629d;
+  border-radius: 10%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  
+}
 
 
 .navbar {
@@ -47,6 +74,7 @@
   padding: .75rem 1rem;
   text-align: center;
   text-decoration: none #4c75b4 solid;
+  color: var(--link-color);
   text-decoration-thickness: auto;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   cursor: pointer;

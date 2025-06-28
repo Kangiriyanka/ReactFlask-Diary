@@ -29,12 +29,14 @@ function Calendar() {
   
   }
 //   Hooks 
-    const [months] = useState(Object.keys(calendar))
+    const months = Object.keys(calendar)
     const [index, setIndex] = useState(Object.keys(calendar).indexOf(month))
     const [currentMonth, setCurrentMonth] = useState(months[index])
     const [days, setDays] = useState([])
     const [firstDayOfTheMonth, setFirstDayOfTheMonth] = useState(0)
     const [currentYear, setCurrentYear] = useState(parseInt(year,10))
+
+    
 
     // Whenever the month changes, update the days. 
     // [currentMonth] is what the hook is watching for.
@@ -60,6 +62,35 @@ function Calendar() {
         return false;
 
     }
+
+    useEffect(() => {
+        
+        const handleKeyDown = (e) => {
+            console.log(e.key,e.code)
+            // 1 is  (1 , Digit1)
+          if (e.code === 'ArrowLeft') {
+            handlePreviousYear()
+          } else if (e.code === 'ArrowRight') {
+            handleNextYear()
+             // Instead of a barrage of else if, use regex :)
+          } else if (/[1-9]/.test(e.key)) {
+             //e.code is a string 
+             const index = parseInt(e.key, 10)-1;
+             changeMonth(index)
+          } else if (e.code == 'Digit0') {
+             changeMonth(9)
+          } else if (e.code == 'Minus') {
+             changeMonth(10)
+          } else if (e.code == 'Equal') {
+             changeMonth(11)
+          }
+
+        }
+      
+        // Remove the listener when you're done pressing
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [currentYear]);
 
 // Ordinary functions
 
@@ -112,10 +143,28 @@ function Calendar() {
     return (
 
         <div className= "calendar-container"> 
-    
+          <div className= "key-box">
+            <p style= {{fontWeight: "bold", textDecoration: "underline"}}>Commands</p>
+         
+            <div>
+             1. Press keys <span className=" key">←</span> <span className="key">→</span> to change years  
+            
+            </div>
+
+           
+            <div style= {{marginTop: "1rem"}}>
+  2. Press number keys from <span className="key"> 1</span> to <span className="key">9</span> with the next three keys to the right  to change months.
+</div>
+          
+           
+
+
+        </div>
             <div className= "year-month-container">
                 
             <div className= "previous-triangle" onClick ={handlePreviousYear} > </div> 
+
+           
             <h1 style = {{color: "var(--custom-black)"}}> {currentYear} </h1>
          
             <div className= "next-triangle" onClick = {handleNextYear} >  </div> 

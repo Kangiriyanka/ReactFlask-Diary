@@ -21,12 +21,14 @@ function Home(props) {
   
 
     return (
-        <div style ={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+        <div style ={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", }}>
        
             <h2 style={{textAlign: "center"}}> Today is {currentDay},  {currentMonth} {dayNumber}{prefix} {currentYear} </h2>
+            <Link  className="edit-entry"  to={{pathname: `/calendar/days/${currentYear}/${currentMonth}/${dayNumber}`}}>
             <button className= "button-38">
-            <Link  className="edit-entry" style ={{textDecoration: "none", color: "var(--link-color)"}} to={{pathname: `/calendar/days/${currentYear}/${currentMonth}/${dayNumber}`}}> Write about it </Link>
+             See contents
             </button>
+            </Link>
           
       
         </div>

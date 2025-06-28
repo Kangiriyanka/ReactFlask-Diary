@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Quill from "quill";
-
-
+import parse from "html-react-parser"
 
 function QuillEditor({ content, onChange }) {
 

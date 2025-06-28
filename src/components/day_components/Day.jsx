@@ -10,19 +10,17 @@ import "../../assets/styles/days.scss"
 function Day() {
     const [dayTitle, setDayTitle] = useState("")
     const [dayContent, setDayContent] = useState("")
-    const [date, setDate] = useState("")
     const { year, month, day} = useParams();
     
     
     useEffect(() => {
       async function fetchDiaryEntry() {
         try {
-          const response = await axios.get(`/get_diary_entry/${year}/${month}/${day}/`);
-          const res = response.data;
-          console.log(res)
-          setDayTitle(res["day_title"]);
-          setDayContent(res["day_content"]);
-          setDate(res["date"]);
+          const response = await axios.get(`/api/get_diary_entry/${year}/${month}/${day}/`);
+          const data = response.data;
+          setDayTitle(data["day_title"]);
+          setDayContent(data["day_content"]);
+          setDate(data["date"]);
         } catch (error) {
           console.log(error.response);
         }
@@ -38,18 +36,24 @@ function Day() {
 
         <div className = "day-box" contentEditable="true"> 
             <h2> {month} {day}{getDayPrefix(day)} {year} </h2>
-            <h2 className= "day-title"> {dayTitle == "" ? "There's nothing yet" : dayTitle} </h2>
-            <button className= "button-38">
-            <Link  className="edit-entry" style ={{textDecoration: "none", color: "var(--link-color)"}} to={{pathname: `edit/`}} state = {{edit_title: dayTitle , edit_content: dayContent}}> Edit contents</Link>
-            </button>
+           
+      
+            <h3   className= "day-title"> { dayTitle} </h3>
             <article>
+
+            
            
 
-              {dayContent}
+              {parse(dayContent)}
 
 
             </article>
-           
+            <Link  className="edit-entry"  to={{pathname: `edit/`}} state = {{edit_title: dayTitle , edit_content: dayContent}}>
+            <button  className= "button-38">
+         
+      Edit
+             </button>
+             </Link>
         </div>
 
     )

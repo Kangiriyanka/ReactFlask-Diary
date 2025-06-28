@@ -1,7 +1,5 @@
-$big: 1.5rem;
+
 $base-text-color: hsl(240, 45%, 50%);
-$gentle-blue-color:  rgb(108, 167, 243);
-$dayBackground: rgb(158, 186, 158);
 $lb-mono-1: #1E5162;
 $lb-mono-2: #296E85;
 $lb-mono-3: #338BA8;
@@ -10,26 +8,52 @@ $lb-mono-4: #3686a0;
 @mixin form-input {
   
 
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   background-color: transparent;
+  color: var(--custom-black);
+  width: 50%;
   border: none;
-  border-bottom: 2px solid navy;  // Only a bottom border
+  border-bottom: 2px solid $lb-mono-1;  // Only a bottom border
   box-shadow: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 
   &:focus {
     border-color: #134274;
     outline: none;
-    border-bottom: 1x solid #007BFF; // Bottom border changes color on focus
+    border-bottom: 3px solid #2256679d;
   }
 }
 
+article {
+ 
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-top: 10px double #134274;
+  border-bottom: 10px double #134274;
+  width: 70%;
+  h1,h2,h3,h4 {
+    color: var(--custom-black);
+    text-align: left;
+    padding: 0;
+   
+  }
+  p {
+    color: var(--custom-black);
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+
+}
 
 
 form {
  
     display: flex;
     flex-direction: column;
+    width: 60%;
     
 
     label {
@@ -38,7 +62,7 @@ form {
       gap: 1rem;
       align-items: center;
       color: $base-text-color;
-      font-size: $big
+      font-size: 1.5rem;
     }
 
    
@@ -55,9 +79,8 @@ form {
    font-size: 1rem;
  
    border-radius: 0.5rem;
-   border: 0.5px solid gray;
 
-   background-color: $gentle-blue-color;
+
 }
 
 .day-box {
@@ -67,38 +90,61 @@ form {
   align-items: center;
 }
 
+.day-title {
+  
+   padding: 0rem;
+   margin-bottom: 1rem;
+  
+}
 .day-title-input {
     @include form-input
+    
   
   }
 
 .day-content-input {
     @include form-input;
-    height: 100px;
+    height: 10rem;
   
   }
 
 .edit-day-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   padding: 1.5rem;
 
-  h1 {
-    font-size: 3rem;
+  h3 {
+    font-size: 2rem;
+    padding: 0;
+   
   }
+
+
 }
 
 
 
 .ql-toolbar {
-  background-color: $gentle-blue-color;
-  max-width: 70%;
+  background-color: #4b97ba;
   
+
 }
+
+
 
 .ql-container {
   background-color: var(--link-color);
-  max-width: 70%;
+  font-size: 1.5rem;
   
+
+  
+}
+
+.ql-snow {
+  border: 1px solid #2256679d !important;
 }
 
 
