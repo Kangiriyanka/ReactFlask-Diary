@@ -3,13 +3,14 @@ html {
   margin: 0;
   height: 100vh;
   overflow: auto;
-  background-color: #89CFF0;
+
 
 }
 
 :root {
   --link-color: #d3d5e7ea;
   --custom-black:  rgba(0, 0, 0, 0.744);
+  --custom-white: rgba(222, 224, 252, 0.9176470588);
   
 }
 
@@ -50,7 +51,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
+
+  background-image: url("/images/drop.svg");
+  background-size: cover;
+  background-position: 50% 60%;
+  background-repeat: repeat;
+
 }
 
 code {

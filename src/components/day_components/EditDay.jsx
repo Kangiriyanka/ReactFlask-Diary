@@ -23,6 +23,7 @@ function EditDay() {
     console.log(formData)
     try {
       const response = await axios.post(`/api/edit_diary_entry/${year}/${month}/${day}`, formData)
+      console.log(response)
       setResponse(response.data)
     } catch(error) {
       console.log(error.response)
@@ -59,14 +60,16 @@ function EditDay() {
        
         </label>
 
-        <QuillEditor content ={content} onChange ={setContent}/>
+        <QuillEditor content= {content} onChange ={setContent}/>
         
 
 
      
-        <p> {response} </p>
-        <button  style ={{textDecoration: "none", color: "var(--link-color)"}} className= "button-38" type="submit">Submit</button>
-      </form>u
+       
+        <button  style ={{margin: "2rem 0", textDecoration: "none", color: "var(--link-color)"}} className= "button-38" type="submit">Submit</button>
+      </form>
+
+      <p style = {{fontSize: "2rem"}}> {response} </p>
 
     </div>
   );

@@ -29,21 +29,28 @@ article {
   padding: 2rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  border-top: 10px double #134274;
-  border-bottom: 10px double #134274;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(167, 165, 165, 0.828);
+  border-top: 10px solid #134274;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  
+  background-color:  var(--custom-white);
   width: 70%;
   h1,h2,h3,h4 {
-    color: var(--custom-black);
+    color: #1c4c5d;
     text-align: left;
     padding: 0;
    
   }
   p {
-    color: var(--custom-black);
+    color: #1c4c5d;
     font-size: 1.2rem;
   }
   h1 {
     font-size: 3rem;
+  }
+  img {
+    width: 40rem;
   }
 
 }
@@ -71,6 +78,8 @@ form {
 }
 
 
+
+
 .submit-button {
    
    margin: 1rem;
@@ -92,8 +101,8 @@ form {
 
 .day-title {
   
-   padding: 0rem;
-   margin-bottom: 1rem;
+  
+   margin: 0;
   
 }
 .day-title-input {

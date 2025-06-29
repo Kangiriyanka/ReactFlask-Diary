@@ -3,16 +3,29 @@
   width: 100%;
   height: 100%;
 }
+
+
 .key-box {
-  position: relative;
-  margin: 0 auto;
+
+  position: fixed;
+
+ 
+  top: 4.8rem;
+  right: 1rem;;
+  z-index: 10;
   width: 30rem;
-  background-color:  #3795b449;
+  height: 10rem;
+  
+ 
+  background-color:  rgb(121, 182, 210);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  margin: -2rem;
-  font-size: 1.4rem;
+
+
+  font-size: 1.35rem;
+  font-weight: bold;
   border: 0.5px solid var(--custom-black);
-  padding: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .key {
@@ -98,6 +111,45 @@
 
 
 
+.button-38-small {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color:#0d506f;
+  border: 0;
+  border-radius: .5rem;
+  width: 10rem;
+  height: 3rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Ronzino";
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #4c75b4 solid;
+  color: var(--link-color);
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-38:hover, .button-38-small:hover {
+  background-color:#1a2049;
+}
+
+.button-38:focus, .button-38-small:hover {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button-38:focus-visible, .button-38-small:hover{
+  box-shadow: none;
+}
 
 
 

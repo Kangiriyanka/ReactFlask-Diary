@@ -34,12 +34,13 @@ function Day() {
 
     return (
 
-        <div className = "day-box" contentEditable="true"> 
+        <div className = "day-box"> 
             <h2> {month} {day}{getDayPrefix(day)} {year} </h2>
            
           
-            <h3  className= "day-title"> { dayTitle} </h3>
+           
             <article>
+            <h3  className= "day-title"> Title: { dayTitle} </h3>
 
             
            

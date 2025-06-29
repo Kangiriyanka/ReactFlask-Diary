@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import MonthGrid from "./MonthGrid.jsx"
 import EmptyView from "../general_components/EmptyView.jsx"
+import CommandBox from '../calendar_components/CommandBox.jsx'
 import {getDayOfTheWeek, isLeapYear} from "../../assets/data/calendar.js"
 import "../../assets/styles/calendar.scss"
 
@@ -141,25 +142,9 @@ function Calendar() {
     }
 
     return (
-
+       
         <div className= "calendar-container"> 
-          <div className= "key-box">
-            <p style= {{fontWeight: "bold", textDecoration: "underline"}}>Commands</p>
-         
-            <div>
-             1. Press keys <span className=" key">←</span> <span className="key">→</span> to change years  
-            
-            </div>
-
-           
-            <div style= {{marginTop: "1rem"}}>
-  2. Press number keys from <span className="key"> 1</span> to <span className="key">9</span> with the next three keys to the right  to change months.
-</div>
-          
-           
-
-
-        </div>
+         <CommandBox/>
             <div className= "year-month-container">
                 
             <div className= "previous-triangle" onClick ={handlePreviousYear} > </div> 
