@@ -11,7 +11,7 @@ START_DATE = date(2000, 1, 1)
 END_DATE = date(2100, 12, 31)
 
 
-
+# The only table created is "diary_entries"
 @bp.cli.command('create-db')
 def init_database():
     db.create_all()

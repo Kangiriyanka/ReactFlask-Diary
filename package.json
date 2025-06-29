@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "backend": "cd backend && .venv/bin/flask run --no-debugger"
+    "backend": "cd backend && .venv/bin/flask run --no-debugger",
+    "create-venv": "cd backend && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt",
+    "create-env": "cd backend && test -f .env || echo  \"SECRET_KEY=\\nDATABASE_URL=\\nDATABASE_TRACKING=False\\nFLASK_APP=diary.py\\nFLASK_ENV=development\" > .env"
+
   },
   "dependencies": {
     "axios": "^1.6.4",
