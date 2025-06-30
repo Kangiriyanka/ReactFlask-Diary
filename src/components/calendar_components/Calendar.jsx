@@ -45,23 +45,6 @@ function Calendar() {
         setDays(createDays(calendar[currentMonth] ));
     }, [currentMonth, currentYear]);
 
-    // Validate the year and month
-    function validateYear(year) {
-        const yearNum = parseInt(year, 10);
-        if (isNaN(yearNum)) {
-            return false;
-        }
-        return yearNum >= minYear && yearNum <= maxYear;
-    }
-
-    function validateMonth(month) {
-        if (Object.keys(calendar).includes(month)) {
-            return true;
-        }
-        return false;
-
-    }
-
     useEffect(() => {
         const numberRowMap = {
             "Digit1": 0,
@@ -84,7 +67,7 @@ function Calendar() {
             handlePreviousYear()
           } else if (e.code === 'ArrowRight') {
             handleNextYear()
-             // Instead of a barrage of else if, use regex :)
+            
           } else if (numberRowMap.hasOwnProperty(e.code)) {
              //e.code is a string 
             
@@ -97,27 +80,40 @@ function Calendar() {
         window.addEventListener('keydown', handleKeyDown);
         // Cleanup function when the component unmounts 
         return () => window.removeEventListener('keydown', handleKeyDown);
-      }, [currentYear]);
+      }, []);
+
+    // Validate the year and month
+    function validateYear(year) {
+        const yearNum = parseInt(year, 10);
+        if (isNaN(yearNum)) {
+            return false;
+        }
+        return yearNum >= minYear && yearNum <= maxYear;
+    }
+
+    function validateMonth(month) {
+        if (Object.keys(calendar).includes(month)) {
+            return true;
+        }
+        return false;
+
+    }
+
+ 
 
 // Ordinary functions
-
-    function handleNextYear() {           
-        
-        if (currentYear + 1 > maxYear) {
-            return;
-        }
-        setCurrentYear(currentYear + 1)
-    
-        
+    function handleNextYear() {
+        setCurrentYear(prev => {
+            if (prev + 1 > maxYear) return prev;
+            return prev + 1;
+        });
     }
 
     function handlePreviousYear() {
-
-        if (currentYear -1 < minYear) {
-            return ;
-        }
-        setCurrentYear(currentYear - 1)
-
+        setCurrentYear(prev => {
+            if (prev - 1 < minYear) return prev;
+            return prev - 1;
+        });
     }
 
 
