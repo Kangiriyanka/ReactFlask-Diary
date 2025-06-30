@@ -33,7 +33,7 @@ function EditDay() {
 
   function submitDay(e) {
     e.preventDefault();
-    //Flow: Submit -> Pack the state variables inside an object 
+    // Flow: Submit -> Pack the state variables inside an object 
     //      Send the object to sendDataFlask
     const data = {
       day_title: newTitle,

@@ -27,22 +27,20 @@ function Calendar() {
       "October": 31,
       "November": 30,
       "December": 31,
-  
   }
 //   Hooks 
     const months = Object.keys(calendar)
     const [index, setIndex] = useState(Object.keys(calendar).indexOf(month))
     const [currentMonth, setCurrentMonth] = useState(months[index])
+    const [currentYear, setCurrentYear] = useState(parseInt(year,10))
     const [days, setDays] = useState([])
     const [firstDayOfTheMonth, setFirstDayOfTheMonth] = useState(0)
-    const [currentYear, setCurrentYear] = useState(parseInt(year,10))
 
     
 
     // Whenever the month changes, update the days. 
     // [currentMonth] is what the hook is watching for.
     useEffect(() => {
-        
         setFirstDayOfTheMonth(getDayOfTheWeek(currentYear, index))
         setDays(createDays(calendar[currentMonth] ));
     }, [currentMonth, currentYear]);
@@ -65,7 +63,20 @@ function Calendar() {
     }
 
     useEffect(() => {
-        
+        const numberRowMap = {
+            "Digit1": 0,
+            "Digit2": 1,
+            "Digit3": 2,
+            "Digit4": 3,
+            "Digit5": 4,
+            "Digit6": 5,
+            "Digit7": 6,
+            "Digit8": 7,
+            "Digit9": 8,
+            "Digit0": 9,
+            "Minus": 10,
+            "Equal": 11
+          };
         const handleKeyDown = (e) => {
             console.log(e.key,e.code)
             // 1 is  (1 , Digit1)
@@ -74,22 +85,17 @@ function Calendar() {
           } else if (e.code === 'ArrowRight') {
             handleNextYear()
              // Instead of a barrage of else if, use regex :)
-          } else if (/[1-9]/.test(e.key)) {
+          } else if (numberRowMap.hasOwnProperty(e.code)) {
              //e.code is a string 
-             const index = parseInt(e.key, 10)-1;
-             changeMonth(index)
-          } else if (e.code == 'Digit0') {
-             changeMonth(9)
-          } else if (e.code == 'Minus') {
-             changeMonth(10)
-          } else if (e.code == 'Equal') {
-             changeMonth(11)
-          }
+            
+             changeMonth(numberRowMap[e.code])
+          
 
         }
-      
+    }
         // Remove the listener when you're done pressing
         window.addEventListener('keydown', handleKeyDown);
+        // Cleanup function when the component unmounts 
         return () => window.removeEventListener('keydown', handleKeyDown);
       }, [currentYear]);
 
@@ -137,8 +143,6 @@ function Calendar() {
     function changeMonth(newIndex) {
         setIndex(newIndex)
         setCurrentMonth(months[newIndex])
-
-
     }
 
     return (

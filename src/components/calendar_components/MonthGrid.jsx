@@ -11,23 +11,14 @@ const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
     
    return (
   <div className="month-grid">
-       {emptySquares.map((day) => (
-
-            
+       {emptySquares.map((day) => ( 
                 <EmptySquare key ={day} />
             )
        )}
-
        {props.days.map((day) => (
             <Square key={day} day={day} month={props.month} year={props.year}  />
         ))}
         
-   
-
-       
-    
-
-
   </div>
 );
            

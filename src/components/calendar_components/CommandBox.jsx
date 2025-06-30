@@ -17,7 +17,7 @@ function CommandBox() {
 
 
 <div style= {{marginTop: "1rem"}}>
-2. Press number keys from <span className="key"> 1</span> to <span className="key">9</span> with the next three keys to the right  to change months.
+2. Press the keys in your number row to change months.
 </div>
 
 <button style ={{position: "absolute"}} className= "button-38-small" onClick={() => setShowBox(false)}> X</button> 

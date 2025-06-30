@@ -35,7 +35,7 @@ function Day() {
     return (
 
         <div className = "day-box"> 
-            <h2> {month} {day}{getDayPrefix(day)} {year} </h2>
+            <h2> My {month} {day}{getDayPrefix(day)} {year} </h2>
            
           
            
