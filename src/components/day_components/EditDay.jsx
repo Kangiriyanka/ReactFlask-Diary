@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getDayPrefix } from "../../assets/data/calendar";
 import QuillEditor from "./QuillEditor"
@@ -15,7 +15,9 @@ function EditDay() {
   const { edit_title, edit_content } = location.state;
   const [newTitle, setNewTitle] = useState(edit_title);
   const [content, setContent] = useState(edit_content);
+  const quillRef = useRef();
 
+  
   async function sendDataToFlask(data) {
     const formData = new FormData();
     formData.append("dayTitle", data.day_title);
@@ -60,8 +62,8 @@ function EditDay() {
        
         </label>
 
-        <QuillEditor content= {content} onChange ={setContent}/>
-        
+        <QuillEditor innerRef= {quillRef} content= {content} onChange ={setContent}/>
+    
 
 
      

@@ -41,8 +41,13 @@ function Calendar() {
     // Whenever the month changes, update the days. 
     // [currentMonth] is what the hook is watching for.
     useEffect(() => {
+       
         setFirstDayOfTheMonth(getDayOfTheWeek(currentYear, index))
-        setDays(createDays(calendar[currentMonth] ));
+        const isFebLeap = currentMonth === "February" && isLeapYear(currentYear);
+        const daysArray = isFebLeap
+        ? Array.from({ length: 29 }, (_, i) => i + 1)
+        : createDays(calendar[currentMonth]);
+        setDays(daysArray);
     }, [currentMonth, currentYear]);
 
     useEffect(() => {
@@ -125,7 +130,7 @@ function Calendar() {
     
 
     // Returns an array of integers corresponding to the # of days in the given month
-    function createDays(days_in_the_month) {
+    function createDays(days_in_the_month, isLeapYear) {
 
         let days = []
         for ( let i = 0 ; i < days_in_the_month; i++ ) {

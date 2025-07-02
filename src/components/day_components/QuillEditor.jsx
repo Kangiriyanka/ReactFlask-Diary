@@ -1,18 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import Quill from "quill";
-import parse from "html-react-parser"
 
-function QuillEditor({ content, onChange }) {
 
-  // Quill requires a container where the editor will be appended
-  const editorRef = useRef(null);
-  const quillRef = useRef(null);
- 
+function QuillEditor({ innerRef, content, onChange }) {
 
+
+  const containerRef = useRef();
+  
   useEffect(() => {
+    // Make sure we don't create another Quill editor
     
-    if (quillRef.current) return;
-    
+    if (innerRef.current) return;
 
     const toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -40,17 +38,22 @@ function QuillEditor({ content, onChange }) {
           toolbar: toolbarOptions
         },
       }
-
-    quillRef.current = new Quill(editorRef.current, options)
-    quillRef.current.clipboard.dangerouslyPasteHTML(0, content)
-    quillRef.current.on("text-change", () => {
-      const newContent = quillRef.current.getSemanticHTML()
+    
+  
+  
+    const container = containerRef.current;
+    const quill = new Quill(container, options)
+    innerRef.current = quill
+    quill.clipboard.dangerouslyPasteHTML(0, content)
+    quill.on("text-change", () => {
+      const newContent = quill.getSemanticHTML()
       onChange(newContent)
   
     });
   }, []);
-
-  return <div ref={editorRef} />;
+  
+  // 
+  return <div ref={containerRef} />;
 }
 
 export default QuillEditor;
