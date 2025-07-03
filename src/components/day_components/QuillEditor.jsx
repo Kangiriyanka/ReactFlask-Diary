@@ -52,7 +52,7 @@ function QuillEditor({ innerRef, content, onChange }) {
     });
   }, []);
   
-  // 
+  
   return <div ref={containerRef} />;
 }
 

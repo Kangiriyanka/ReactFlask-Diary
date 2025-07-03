@@ -13,7 +13,7 @@ function EditDay() {
   const [response, setResponse] = useState("");
   const { year, month, day } = useParams();
   const { edit_title, edit_content } = location.state;
-  const [newTitle, setNewTitle] = useState(edit_title);
+  const [title, setTitle] = useState(edit_title);
   const [content, setContent] = useState(edit_content);
   const quillRef = useRef();
 
@@ -22,10 +22,9 @@ function EditDay() {
     const formData = new FormData();
     formData.append("dayTitle", data.day_title);
     formData.append("dayContent", data.day_content);
-    console.log(formData)
+    console.log(formData);
     try {
       const response = await axios.post(`/api/edit_diary_entry/${year}/${month}/${day}`, formData)
-      console.log(response)
       setResponse(response.data)
     } catch(error) {
       console.log(error.response)
@@ -38,7 +37,7 @@ function EditDay() {
     // Flow: Submit -> Pack the state variables inside an object 
     //      Send the object to sendDataFlask
     const data = {
-      day_title: newTitle,
+      day_title: title,
       day_content: content,
     };
 
@@ -56,8 +55,8 @@ function EditDay() {
           <input
             className= "day-title-input"
             type="textarea"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
        
         </label>
