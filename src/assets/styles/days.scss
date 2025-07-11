@@ -92,6 +92,14 @@ form {
 
 }
 
+.day-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
 .day-box {
   display: flex;
   justify-content: center;
@@ -155,6 +163,8 @@ form {
 .ql-snow {
   border: 1px solid #2256679d !important;
 }
+
+
 
 
 

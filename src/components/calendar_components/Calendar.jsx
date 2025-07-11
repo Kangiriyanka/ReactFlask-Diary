@@ -130,7 +130,7 @@ function Calendar() {
     
 
     // Returns an array of integers corresponding to the # of days in the given month
-    function createDays(days_in_the_month, isLeapYear) {
+    function createDays(days_in_the_month) {
 
         let days = []
         for ( let i = 0 ; i < days_in_the_month; i++ ) {
