@@ -127,8 +127,28 @@ $lb-mono-4: #3686a0;
 
   .active-square{ 
 
-    background-color:  var(--custom-white);
+    background-color:  var(--custom-white) !important;
   }
+
+
+  .filled-square {
+
+    position: relative;
+    background-color:#bdc6cacf;
+    display: inline-block;
+    text-align: center;
+    height: 5rem;
+    margin: 0 auto;
+    margin: 1rem 2.5rem 1rem 2.5rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: background-color 1s 500ms
+    
+    
+  }
+  
+    
+  
 
   .calendar-square::after , .calendar-square::before {
     content: '';
@@ -150,6 +170,8 @@ $lb-mono-4: #3686a0;
     top: 50%;
     left: 50%;
     border-radius: 1.5rem;
+
+    
    
 
    
@@ -322,6 +344,8 @@ $lb-mono-4: #3686a0;
     padding: 1.2rem;
     margin: 0.7rem;
   }
+
+
 
   .day-number {
 

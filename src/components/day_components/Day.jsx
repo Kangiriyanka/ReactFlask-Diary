@@ -49,6 +49,8 @@ function Day() {
     useEffect(() => {
       async function fetchDiaryEntry() {
         try {
+        
+        
           const response = await axios.get(`/api/get_diary_entry/${year}/${month}/${day}/`);
           const data = response.data;
           setDayTitle(data["day_title"]);

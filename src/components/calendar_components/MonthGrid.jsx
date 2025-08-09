@@ -4,6 +4,9 @@ import EmptySquare from "./EmptySquare.jsx";
 
 function MonthGrid(props) {
 
+
+    
+
 const emptySquares = Array.from({length: props.offset}, (_,i) => i +1)
 
 
