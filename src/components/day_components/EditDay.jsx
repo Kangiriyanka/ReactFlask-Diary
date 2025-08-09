@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { getDayPrefix } from "../../assets/data/calendar";
 import QuillEditor from "./QuillEditor"
@@ -15,7 +15,37 @@ function EditDay() {
   const { edit_title, edit_content } = location.state;
   const [newTitle, setNewTitle] = useState(edit_title);
   const [content, setContent] = useState(edit_content);
+  const navigate = useNavigate();
   const quillRef = useRef();
+
+
+    useEffect(() => {
+       
+        const handleKeyDown = (e) => {
+        
+  
+           if (e.ctrlKey && e.code === 'KeyS') {
+            console.log(e)
+            e.preventDefault();
+            const data = {
+            day_title: newTitle,
+            day_content: content,
+
+          };
+
+          console.log(data)
+           sendDataToFlask(data);
+
+         
+
+            
+        }
+    }
+        // Remove the listener when you're done pressing
+        window.addEventListener('keydown', handleKeyDown);
+        // Cleanup function when the component unmounts 
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [newTitle, content]);
 
   
   async function sendDataToFlask(data) {
@@ -25,18 +55,19 @@ function EditDay() {
     console.log(formData)
     try {
       const response = await axios.post(`/api/edit_diary_entry/${year}/${month}/${day}`, formData)
-      console.log(response)
-      setResponse(response.data)
+
+      navigate(`/calendar/days/${year}/${month}/${day}`)
     } catch(error) {
+      setResponse(response.data)
       console.log(error.response)
     }
   
   }
-
+    // Flow: Submit -> Pack the state variables inside an object 
+    //  Send the object to sendDataFlask
   function submitDay(e) {
     e.preventDefault();
-    // Flow: Submit -> Pack the state variables inside an object 
-    //      Send the object to sendDataFlask
+   
     const data = {
       day_title: newTitle,
       day_content: content,
@@ -68,7 +99,7 @@ function EditDay() {
 
      
        
-        <button  style ={{margin: "2rem 0", textDecoration: "none", color: "var(--link-color)"}} className= "button-38" type="submit">Submit</button>
+        <button  style ={{alignSelf: "center", margin: "2rem 0", textDecoration: "none", color: "var(--link-color)"}} className= "button-38" type="submit">Submit (Ctrl + S)</button>
       </form>
 
       <p style = {{fontSize: "2rem"}}> {response} </p>

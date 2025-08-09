@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import Quill from "quill";
+import QuillTableBetter from "quill-table-better";
+import 'quill-table-better/dist/quill-table-better.css'
+import "../../assets/styles/quill.scss"
 
 
 function QuillEditor({ innerRef, content, onChange }) {
+
+Quill.register({
+  'modules/table-better': QuillTableBetter
+}, true);
 
 
   const containerRef = useRef();
@@ -29,15 +36,26 @@ function QuillEditor({ innerRef, content, onChange }) {
         [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
         [{ 'font': [] }],
         [{ 'align': [] }],
+         ['table-better'],                                       // table button
       
         ['clean']                                         // remove formatting button
       ];
     const options =  {
         theme: "snow",
         modules: {
-          toolbar: toolbarOptions
-        },
+          toolbar: toolbarOptions,
+          table: false,
+          'table-better': {
+      language: 'en_US',
+      menus: ['column', 'row', 'merge', 'table', 'cell', 'wrap', 'copy', 'delete'],
+      toolbarTable: true
+    },
+
+    keyboard: {
+      bindings: QuillTableBetter.keyboardBindings
+    }
       }
+    }
     
   
   

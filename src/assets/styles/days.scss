@@ -24,6 +24,16 @@ $lb-mono-4: #3686a0;
   }
 }
 
+.article-container {
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 1rem;
+
+}
 article {
  
   padding: 2rem;

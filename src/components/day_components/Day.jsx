@@ -7,6 +7,7 @@ import parse from "html-react-parser"
 import "../../assets/styles/days.scss"
 import { useNavigate } from "react-router-dom";
 import { isLeapYear } from '../../assets/data/calendar';
+import CommandBox from '../calendar_components/CommandBox.jsx';
 
 function Day() {
     const [dayTitle, setDayTitle] = useState("")
@@ -31,6 +32,11 @@ function Day() {
           handlePreviousDay()
         } else if (e.code === 'ArrowRight') {
           handleNextDay()
+        }
+
+        else if (e.ctrlKey && e.code === 'KeyE') {
+          navigate(`edit/`, {state: {edit_title: dayTitle , edit_content: dayContent}});
+          e.preventDefault();
           
       }
   }
@@ -143,14 +149,14 @@ function Day() {
     return (
 
         <div className = "day-box"> 
-
+       
             <div className = "day-header">
             <div className= "previous-triangle" onClick ={handlePreviousDay} > </div> 
             <h2 style = {{color: "var(--custom-black)"}}> My {month} {day}{getDayPrefix(day)} {year} </h2>
             <div className= "next-triangle" onClick = {handleNextDay} >  </div> 
             </div>
           
-           
+            <div className= "article-container">
             <article>
             <h3  className= "day-title"> Title: { dayTitle} </h3>
 
@@ -159,14 +165,15 @@ function Day() {
 
               {parse(dayContent)}
 
-
+            
             </article>
             <Link  className="edit-entry"  to={{pathname: `edit/`}} state = {{edit_title: dayTitle , edit_content: dayContent}}>
             <button  className= "button-38">
          
-      Edit
+      Edit (Ctrl + E)
              </button>
              </Link>
+             </div>
         </div>
 
     )

@@ -1,0 +1,40 @@
+.ql-table-button-disabled  {
+    background-color: none !important;
+    opacity: 0.4 !important;
+}
+
+
+
+
+
+.ql-cell-selected-after, .ql-cell-selected::after, .ql-cell-focused::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(21, 93, 157, 0.037);
+}
+
+td:hover {
+    background-color: #1e51623f !important;
+}
+
+td {
+    border: 1px solid #1e51623f !important;
+
+
+    .ql-cell-selected-after, .ql-cell-selected::after, .ql-cell-focused::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(21, 93, 157, 0.037);
+}
+}
+
