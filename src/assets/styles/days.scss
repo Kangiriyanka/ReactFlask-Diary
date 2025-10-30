@@ -29,8 +29,13 @@ $lb-mono-4: #3686a0;
 
   align-items: center;
   flex-direction: column;
-
   width: 100%;
+ 
+  overflow-x: auto;
+  overflow-y: visible;
+
+
+
   padding: 1rem;
 
 }
@@ -43,9 +48,13 @@ article {
   border: 1px solid rgba(167, 165, 165, 0.828);
   border-top: 10px solid #134274;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  
+  width: 80%;
   background-color:  var(--custom-white);
-  width: 70%;
+  // Prevents the words from overflowing the container
+  word-wrap: break-word;
+
+  max-width: 100%;
+  
   h1,h2,h3,h4 {
     color: #1c4c5d;
     text-align: left;
@@ -63,7 +72,11 @@ article {
     width: 40rem;
   }
 
+  
+
 }
+
+
 
 
 form {
@@ -174,7 +187,9 @@ form {
   border: 1px solid #2256679d !important;
 }
 
+.ql-table-better {
 
-
-
+  width: 100% !important;
+  overflow: hidden;
+}
 
