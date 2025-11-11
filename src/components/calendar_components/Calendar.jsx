@@ -33,22 +33,14 @@ function Calendar() {
     const [index, setIndex] = useState(Object.keys(calendar).indexOf(month))
     const [currentMonth, setCurrentMonth] = useState(months[index])
     const [currentYear, setCurrentYear] = useState(parseInt(year,10))
-    const [days, setDays] = useState([])
-    const [firstDayOfTheMonth, setFirstDayOfTheMonth] = useState(0)
-
+    const firstDayOfTheMonth = getDayOfTheWeek(currentYear, index);
+    const isFebLeap = currentMonth === "February" && isLeapYear(currentYear);
+    const days = isFebLeap
+    ? Array.from({ length: 29 }, (_, i) => i + 1)
+    : createDays(calendar[currentMonth]);
     
 
-    // Whenever the month changes, update the days. 
-    // [currentMonth] is what the hook is watching for.
-    useEffect(() => {
-       
-        setFirstDayOfTheMonth(getDayOfTheWeek(currentYear, index))
-        const isFebLeap = currentMonth === "February" && isLeapYear(currentYear);
-        const daysArray = isFebLeap
-        ? Array.from({ length: 29 }, (_, i) => i + 1)
-        : createDays(calendar[currentMonth]);
-        setDays(daysArray);
-    }, [currentMonth, currentYear]);
+
 
     useEffect(() => {
         const numberRowMap = {
