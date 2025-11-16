@@ -61,6 +61,15 @@ body {
 
 
 
+
+pre {
+  background-color: #6f97c8;
+  padding: 1rem;
+  font-weight: bold;
+  text-wrap: auto;
+  border-radius: 8px;
+  overflow-x: auto;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
