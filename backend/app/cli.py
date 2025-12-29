@@ -75,7 +75,7 @@ def query_content():
         for sentence in matches:
             print(sentence)
 
-        print("\n" + "-"*20 + "\n")
+        print("\n" + "-"*40 + "\n")
 
     
     con.close()

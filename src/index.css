@@ -52,10 +52,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url("/images/drop.svg");
+  background-image: url("/images/bitmap.png");
   background-size: cover;
-  background-position: 50% 60%;
   background-repeat: repeat;
+
+  background-attachment: fixed;
 
 }
 
