@@ -99,7 +99,7 @@ function EditDay() {
 
      
        
-        <button  style ={{alignSelf: "center", margin: "2rem 0", textDecoration: "none", color: "var(--link-color)"}} className= "button-38" type="submit">Submit (Ctrl + S)</button>
+        <button  style ={{alignSelf: "center", margin: "2rem 0", textDecoration: "none", }} className= "button-38" type="submit">Submit (Ctrl + S)</button>
       </form>
 
       <p style = {{fontSize: "2rem"}}> {response} </p>

@@ -10,7 +10,7 @@ html {
 :root {
   --link-color: #d3d5e7ea;
   --custom-black:  rgba(0, 0, 0, 0.744);
-  --custom-white: rgba(222, 224, 252, 0.9176470588);
+  --today-square: #45cdffff;
   
 }
 
@@ -42,11 +42,39 @@ h3 {
   font-style: normal;
 }
 
+@font-face  {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face  {
+  font-family: 'Jakarta';
+  src: url('/fonts/Jakarta/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face  {
+  font-family: 'Instrument';
+  src: url('/fonts/Instrument/InstrumentSans_Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face  {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral/Spectral-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
 
-  font-family: 'Ronzino', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Jakarta', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -55,7 +83,6 @@ body {
   background-image: url("/images/bitmap.png");
   background-size: cover;
   background-repeat: repeat;
-
   background-attachment: fixed;
 
 }

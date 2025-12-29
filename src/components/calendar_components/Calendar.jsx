@@ -4,8 +4,10 @@ import {useParams} from 'react-router-dom'
 import MonthGrid from "./MonthGrid.jsx"
 import EmptyView from "../general_components/EmptyView.jsx"
 import CommandBox from '../calendar_components/CommandBox.jsx'
+import ThemeBox from '../calendar_components/ThemeBox.jsx'
 import {getDayOfTheWeek, isLeapYear} from "../../assets/data/calendar.js"
 import "../../assets/styles/calendar.scss"
+
 
 function Calendar() {
     
@@ -141,6 +143,7 @@ function Calendar() {
     return (
        
         <div className= "calendar-container"> 
+         <ThemeBox/>
          <CommandBox/>
             <div className= "year-month-container">
                 

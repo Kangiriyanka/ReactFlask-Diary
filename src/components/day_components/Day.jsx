@@ -154,7 +154,7 @@ function Day() {
        
             <div className = "day-header">
             <div className= "previous-triangle" onClick ={handlePreviousDay} > </div> 
-            <h2 style = {{color: "var(--custom-black)"}}> My {month} {day}{getDayPrefix(day)} {year} </h2>
+            <h3 style = {{color: "var(--custom-black)"}}> My {month} {day}{getDayPrefix(day)} {year} </h3>
             <div className= "next-triangle" onClick = {handleNextDay} >  </div> 
             </div>
           

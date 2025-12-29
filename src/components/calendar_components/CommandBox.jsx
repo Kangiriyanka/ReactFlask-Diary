@@ -1,4 +1,5 @@
 import {React,useState} from "react"
+import ThemeSwitcher from '../general_components/ThemeSwitcher.jsx'
 
 function CommandBox() {
 
@@ -6,12 +7,12 @@ function CommandBox() {
 
     return (
         <div>
-        <button style ={{position: "absolute"}} className= "button-38-small" onClick={() => setShowBox(true)}> Commands</button> 
+        <button style ={{ }} className= "button-38-small" onClick={() => setShowBox(true)}> Commands</button> 
  {showBox && 
 <div className= "key-box">
 <p style= {{fontWeight: "bold", textDecoration: "underline", margin: "0 0 1rem 0"}}>Commands</p>
 <div>
- 1. Press keys <span className=" key">←</span> <span className="key">→</span> to change years  
+ 1. Press keys <span className="key">←</span> <span className="key">→</span> to change years  
 
 </div>
 

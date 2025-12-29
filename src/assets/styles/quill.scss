@@ -2,10 +2,33 @@
     background-color: none !important;
     opacity: 0.4 !important;
 }
+.ql-toolbar.ql-snow {
+   
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+    border-bottom: none !important;
+  
+ 
+}
+
+.ql-container {
+    border-bottom-left-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+    border-top: none ;
+    
+  
+  
+}
 
 
-
-
+.ql-editor {
+    background: radial-gradient(circle at top left, #f5f9f9, #ffffff) !important;
+    border-top: none !important;
+    border-bottom-left-radius:  0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+  
+ 
+}
 
 .ql-cell-selected-after, .ql-cell-selected::after, .ql-cell-focused::after {
     content: "";

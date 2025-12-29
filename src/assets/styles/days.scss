@@ -41,28 +41,29 @@ $lb-mono-4: #3686a0;
 }
 article {
  
-  padding: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(167, 165, 165, 0.828);
-  border-top: 10px solid #134274;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  width: 80%;
-  background-color:  var(--custom-white);
-  // Prevents the words from overflowing the container
-  word-wrap: break-word;
+   padding: 2.5rem 3rem;
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            border-radius: 0.75rem;
+            
 
-  max-width: 100%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+          
+             background: radial-gradient(circle at top left, #f5f9f9, #ffffff);
+            word-wrap: break-word;
+            width: 60%;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  
   
   h1,h2,h3,h4 {
-    color: #1c4c5d;
+    color: #061013de;
     text-align: left;
     padding: 0;
    
   }
   p {
-    color: #1c4c5d;
+     color: #061013de;
     font-size: 1.2rem;
   }
   h1 {
@@ -73,8 +74,11 @@ article {
   }
 
   
-
 }
+
+  
+
+
 
 
 
@@ -121,6 +125,7 @@ form {
   align-items: center;
   gap: 2rem;
   justify-content: space-between;
+  
 }
 
 .day-box {
