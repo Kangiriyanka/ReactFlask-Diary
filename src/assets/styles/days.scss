@@ -10,15 +10,15 @@ $lb-mono-4: #3686a0;
 
   font-size: 1.8rem;
   background-color: transparent;
-  color: var(--custom-black);
+  color: var(--headers);
   width: 50%;
   border: none;
-  border-bottom: 2px solid $lb-mono-1;  // Only a bottom border
+  border-bottom: 2px solid var(--headers);
   box-shadow: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 
   &:focus {
-    border-color: #134274;
+    border-color: var(--headers);
     outline: none;
     border-bottom: 3px solid var(--headers);
   }
@@ -57,7 +57,7 @@ article {
   
   
   h1,h2,h3,h4 {
-    color: #061013de;
+    color: var(--headers);
     text-align: left;
     padding: 0;
    

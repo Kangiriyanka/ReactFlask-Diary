@@ -3,7 +3,7 @@ import { ThemeContext } from './ThemeProvider';
 const THEME_LIST = [
   { key: 'chilly', label: 'Chilly' },
   { key: 'warm',   label: 'Warm'   },
-  { key: 'dark',   label: 'Dark'   },
+  { key: 'mint',   label: 'Mint'   },
 ];
 
 export default function ThemeSwitcher() {
@@ -15,12 +15,11 @@ export default function ThemeSwitcher() {
           key={t.key}
           role="radio"
           aria-checked={theme === t.key}
-          className={`swatch  button-38 ${theme === t.key ? 'selected' : ''}`}
+          className={`button-38 ${theme === t.key ? 'selected' : ''}`}
           onClick={() => setTheme(t.key)}
-          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setTheme(t.key)}
           title={t.label}
         >
-          <span className="swatch-inner" />
+         
           <span className="sr-only">{t.label}</span>
         </button>
       ))}

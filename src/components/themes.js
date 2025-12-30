@@ -40,30 +40,35 @@ const themes = {
      '--code-clr': '#e1e7f1ff'
   },
 
+
+
+
+mint: {
+
+  '--bg': '#0d0d0d',
+  '--filled': '#e6ddddff',
+  '--nav-bg': '#366057ff',
+  '--quill-bg': '#579a8bff',
   
-  dark: {
-  '--bg': '#0a0a0a',
-  '--link-color': '#ffffff',
-  '--text': '#e0e0e0',
-  '--accent': '#ffffff',
-  '--ink-bg': 'linear-gradient(to bottom, #423f3fff, #000000)',
 
-  '--square': 'radial-gradient(circle at top left, #f3efefff, #7f7979ff)',
-  '--filled': '#151515',
-  '--nav-bg': '#050505',
-  '--quill-bg': '#1f1f1f',
+  '--text': '#e8e8e8',
+  '--headers':   '#141414',
+  '--link-color': '#e6ddddff',
+  '--accent': '#5dbaa3',
+  
 
+  '--ink-bg': 'radial-gradient(circle at -0% 0%, #9bd9c8ff, #5b9b8bff)',
+  '--square': 'radial-gradient(circle at 30% 30%, #80cebbff, #448978ff)',
+  
 
-  '--month-clr': '#ffffff',
-  '--month-active': '#cccccc',
-  '--underline-clr': '#888888',
-  '--day-of-week-clr': '#777777',
-  '--headers': '#ede2e2ff',
-  '--code-clr': '#151515'
-}
+  '--month-clr': '#0d0d0d',
+  '--month-active': '#cae3deff',
+  '--underline-clr': '#4a9080',
+     '--day-of-week-clr': '#0c2127ff',
+  
 
- 
-};
+       '--code-clr': '#e1e7f1ff'
+}}
 
 
 export default themes;

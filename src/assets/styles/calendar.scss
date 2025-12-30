@@ -80,7 +80,7 @@ $lb-mono-4: #3686a0;
    width: 100%;
    
    left: 0px;
-   border-top: 2px solid rgba(0, 0, 0, 0.08);
+   border-top: 2px solid var(--month-clr);
    
  
   }
@@ -257,25 +257,8 @@ $lb-mono-4: #3686a0;
 
   // Theme switcher
 
-  .theme-switcher {
-  display: flex;
-  gap: 0.5rem;
-  }
+   
 
-    .swatch {
-      border-radius: 0.75rem;
-      padding: 0.1rem;
-      border: 2px solid transparent;
-    }
-
-    .swatch.selected {
-      border-color: var(--month-clr);
-    }
-
-    .swatch:focus-visible {
-      outline: 2px solid  var(--month-clr);
-      outline-offset: 2px;
-    }
 
   
 
