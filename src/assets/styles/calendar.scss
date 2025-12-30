@@ -99,7 +99,7 @@ $lb-mono-4: #3686a0;
   
   .calendar-square {
     position: relative;
-    background: radial-gradient(circle at top left, #c0e2ed, #78bdd5);
+    background: var(--square);
     display: inline-block;
     text-align: center;
     height: 5rem;
@@ -139,7 +139,7 @@ $lb-mono-4: #3686a0;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #e1e1e1;
+    background-color: var(--filled);
   }
   
     
@@ -175,12 +175,13 @@ $lb-mono-4: #3686a0;
     font-size: 1.5rem;
     position: relative;
     font-weight: bold;
-    color: lb-mono-2;
+    color: var(--month-clr);
+    cursor: pointer;
   
 
     &.active {
       
-      color: $lb-mono-4;
+      color: var(--month-active);
       font-weight: bold;
       
       
@@ -195,7 +196,7 @@ $lb-mono-4: #3686a0;
     left: 0;
     width: 100%;
     height: 0.2rem;
-    background-color: $lb-mono-1;
+    background-color: var(--underline-clr);
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
   }
@@ -220,7 +221,7 @@ $lb-mono-4: #3686a0;
     justify-content: center;
     justify-items: center;
     margin-bottom: 0.5rem;
-    color: $lb-mono-1;
+    color: var(--day-of-week-clr);
     font-size: 1.2rem;
     font-weight: bold;
     
@@ -253,6 +254,30 @@ $lb-mono-4: #3686a0;
     border-radius: 50%;
    
   }
+
+  // Theme switcher
+
+  .theme-switcher {
+  display: flex;
+  gap: 0.5rem;
+  }
+
+    .swatch {
+      border-radius: 0.75rem;
+      padding: 0.1rem;
+      border: 2px solid transparent;
+    }
+
+    .swatch.selected {
+      border-color: var(--month-clr);
+    }
+
+    .swatch:focus-visible {
+      outline: 2px solid  var(--month-clr);
+      outline-offset: 2px;
+    }
+
+  
 
 
 // Media queries
@@ -306,6 +331,17 @@ $lb-mono-4: #3686a0;
 
   }
 
+  .filled-square::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--filled);
+  }
+
 
 }
 
@@ -333,18 +369,6 @@ $lb-mono-4: #3686a0;
 
 
 }
-
-
-//  Animations
-  @keyframes spin{
-    from {
-      --angle: 0deg;;
-    }
-   
-    to{
-      --angle: 360deg;
-    }
-  }
 
   
 

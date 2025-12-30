@@ -8,29 +8,31 @@ html {
 }
 
 :root {
-  --link-color: #d3d5e7ea;
-  --custom-black:  rgba(0, 0, 0, 0.744);
+
+  --custom-black:  rgba(0, 0, 0, 0.85);
   --today-square: #45cdffff;
   
 }
 
 
 h1 {
-  color : #1c4c5d;
+
   font-size: 4rem;
+  color: var(--headers);
   padding: 10px;
 }
 
 h2 {
   font-size: 2.5rem;
-  color : #1c4c5d;
+   color: var(--headers);
+
 
 }
 
 h3 {
   padding: 1rem;
   font-size: 2rem;
-    color : #1c4c5d;
+  color: var(--headers);
 }
 
 
@@ -80,7 +82,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url("/images/bitmap.png");
+  background-image: var(--ink-bg);
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -91,7 +93,7 @@ body {
 
 
 pre {
-  background-color: #6f97c8;
+  background-color: var(--code-clr);
   padding: 1rem;
   font-weight: bold;
   text-wrap: auto;

@@ -10,9 +10,9 @@ function ThemeBox() {
         <button style ={{ position: "absolute", right: "170px" }} className= "button-38-small" onClick={() => setShowBox(true)}> Themes </button> 
  {showBox && 
 <div className= "key-box">
-<p style= {{fontWeight: "bold", textDecoration: "underline", margin: "0 0 1rem 0"}}>Calendar Themes</p>
+<p style= {{fontWeight: "bold", fontSize: "1.5rem", margin: "0 0 1rem 0"}}>Select a theme</p>
 <div>
- Select a theme: <ThemeSwitcher/>
+<ThemeSwitcher/>
 </div>
 
 

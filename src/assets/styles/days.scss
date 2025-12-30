@@ -20,7 +20,7 @@ $lb-mono-4: #3686a0;
   &:focus {
     border-color: #134274;
     outline: none;
-    border-bottom: 3px solid #2256679d;
+    border-bottom: 3px solid var(--headers);
   }
 }
 

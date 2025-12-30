@@ -150,7 +150,7 @@ function Calendar() {
             <div className= "previous-triangle" onClick ={handlePreviousYear} > </div> 
 
            
-            <h1 style = {{color: "var(--custom-black)"}}> {currentYear} </h1>
+            <h1> {currentYear} </h1>
          
             <div className= "next-triangle" onClick = {handleNextYear} >  </div> 
 
