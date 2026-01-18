@@ -25,7 +25,7 @@ function EditDay() {
         
   
            if (e.ctrlKey && e.code === 'KeyS') {
-            console.log(e)
+            // console.log(e)
             e.preventDefault();
             const data = {
             day_title: newTitle,
@@ -33,7 +33,7 @@ function EditDay() {
 
           };
 
-          console.log(data)
+       
            sendDataToFlask(data);
 
          

@@ -149,9 +149,9 @@ function Day() {
   
 
     return (
-
-        <div className = "day-box"> 
-       
+      
+        <div style= {{display: "flex"}} className = "day-box"> 
+        
             <div className = "day-header">
             <div className= "previous-triangle" onClick ={handlePreviousDay} > </div> 
             <h3> My {month} {day}{getDayPrefix(day)} {year} </h3>
