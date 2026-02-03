@@ -3,6 +3,11 @@ import Quill from "quill";
 import QuillTableBetter from "quill-table-better";
 import 'quill-table-better/dist/quill-table-better.css'
 import "../../assets/styles/quill.scss"
+import DividerBlot from "../dividerBlot"
+import keyboardBindings from "../bindings";
+
+// https://quilljs.com/docs/modules/keyboard
+
 
 
 function QuillEditor({ innerRef, content, onChange }) {
@@ -11,12 +16,14 @@ Quill.register({
   'modules/table-better': QuillTableBetter
 }, true);
 
+Quill.register(DividerBlot);
+
 
   const containerRef = useRef();
   
   useEffect(() => {
+
     // Make sure we don't create another Quill editor
-    
     if (innerRef.current) return;
 
     const toolbarOptions = [
@@ -35,8 +42,9 @@ Quill.register({
       
         [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
         [{ 'font': [] }],
+      
         [{ 'align': [] }],
-         ['table-better'],                                       // table button
+        ['table-better'],                                 // table button
       
         ['clean']                                         // remove formatting button
       ];
@@ -52,7 +60,7 @@ Quill.register({
     },
 
     keyboard: {
-      bindings: QuillTableBetter.keyboardBindings
+      bindings: keyboardBindings 
     }
       }
     }
@@ -61,6 +69,8 @@ Quill.register({
   
     const container = containerRef.current;
     const quill = new Quill(container, options)
+
+
     innerRef.current = quill
     quill.clipboard.dangerouslyPasteHTML(0, content)
     quill.on("text-change", () => {
@@ -68,6 +78,16 @@ Quill.register({
       onChange(newContent)
   
     });
+
+    // Toggling the tabble 
+    // Modules are defined in the options above
+   
+    const toolbar = quill.getModule('toolbar');
+    toolbar.addHandler('table-better', () => {
+    const tableModule = quill.getModule('table-better');
+    tableModule.insertTable(2, 2);
+    
+});
   }, []);
   
   // 

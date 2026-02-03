@@ -120,10 +120,12 @@ form {
 }
 
 .day-header {
+  position:relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
+  top: 1rem;
   justify-content: space-between;
   
 }
@@ -198,3 +200,34 @@ form {
   overflow: hidden;
 }
 
+
+
+.action-menu {
+
+  position: absolute;
+  top: 7rem;
+  right: 2rem;
+  display: flex;
+  padding: 1rem;
+  margin: -2rem;
+  gap: 1rem;
+  
+}
+
+
+// Animation for CSSTransition
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

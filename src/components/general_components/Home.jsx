@@ -1,7 +1,8 @@
 import {React, useState, useEffect} from "react"
+import {useParams} from 'react-router-dom'
 import {Link, useNavigate} from "react-router-dom";
 import { getDayPrefix } from "../../assets/data/calendar"
-import TodosBox from "../calendar_components/TodosBox"
+
 
 
 
@@ -20,10 +21,14 @@ const getDateInfo = () => {
     };
 };
 
+
+
 function Home() {
 
     const navigate = useNavigate();
+    
     const {currentYear, currentMonth, dayNumber, currentDay} = getDateInfo();
+    const {year, month, day} = useParams()
     const prefix = getDayPrefix(dayNumber);
 
     useEffect(() => {
@@ -44,23 +49,23 @@ function Home() {
 
     return (
         <div style ={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", }}>
-       
+    
 
-        
             <h2 style={{textAlign: "center"}}> Today is {currentDay},  {currentMonth} {dayNumber}{prefix} {currentYear} </h2>
 
           
 
 
             <Link  className="edit-entry"  to={{pathname: `/calendar/days/${currentYear}/${currentMonth}/${dayNumber}`}}>
-            <button className= "button-38">
+            <button style= {{marginTop: "1rem"}} className= "button-38">
             See contents  (Ctrl + E)
             </button>
-            </Link>
-            
-           
-          
+        </Link>
+
       
+       
+
+   
         </div>
 
         

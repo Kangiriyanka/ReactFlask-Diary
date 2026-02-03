@@ -80,7 +80,7 @@ function TodosBox({ year, month, day }) {
 
     return (
         <div className="todos-box">
-            <h3>To Do</h3>
+            <h3>Tasks</h3>
             
             <form onSubmit={addTodo} className="todo-input-form">
                 <input
@@ -92,6 +92,8 @@ function TodosBox({ year, month, day }) {
                 />
                 <button type="submit" className="add-btn">Add</button>
             </form>
+
+            <hr/>
 
             {todos.length === 0 ? (
                 <p className="empty-todos">No tasks for today</p>

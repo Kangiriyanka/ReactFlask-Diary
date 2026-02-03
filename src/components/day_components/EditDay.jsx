@@ -80,6 +80,7 @@ function EditDay() {
   return (
     
     <div className= "edit-day-box">
+
       <h3> My {month} {day}{ getDayPrefix(day)} {year} </h3>
       <form onSubmit={submitDay}>
         <label>

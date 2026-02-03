@@ -15,7 +15,7 @@ const themes = {
      '--underline-clr': "#c2375cff",
      '--day-of-week-clr':"#230a11ff",
      '--headers':  "#922746ff",
-     '--code-clr': '#e1e7f1ff'
+     '--code-clr': "rgb(246, 179, 198)",
     
 
   
@@ -37,7 +37,7 @@ const themes = {
     '--underline-clr': '#1E5162',
      '--day-of-week-clr': '#0c2127ff',
      '--headers': "#1c4c5d",
-     '--code-clr': '#e1e7f1ff'
+     '--code-clr': 'rgb(202, 212, 228)'
   },
 
 

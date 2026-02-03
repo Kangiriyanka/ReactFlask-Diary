@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {Link, useParams} from "react-router-dom";
 import { getDayPrefix } from '../../assets/data/calendar';
 import axios from "axios";
@@ -7,19 +7,34 @@ import parse from "html-react-parser"
 import "../../assets/styles/days.scss"
 import { useNavigate } from "react-router-dom";
 import { isLeapYear } from '../../assets/data/calendar';
-import CommandBox from '../calendar_components/CommandBox.jsx';
+import ActionMenu from '../day_components/ActionMenu.jsx';
+import TodosBox from "./TodosBox.jsx"
+import Article from './Article.jsx';
+import { CSSTransition } from 'react-transition-group';
 
 function Day() {
     const [dayTitle, setDayTitle] = useState("")
     const [dayContent, setDayContent] = useState("")
+    const [currentView, setCurrentView] = useState("article")
     const { year, month, day} = useParams();
     const numericDay = parseInt(day);
     const numericYear = parseInt(year);
     const allMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const longMonths = ["January", "March", "May", "July", "August", "October", "December"];
     const shortMonths = ["April", "June", "September", "November"];
-  
-   
+    
+
+    const [inProp, setInProp] = useState(true);
+    const nodeRef = useRef(null);
+
+    // You pass this inside the Action Menu
+     const handleViewChange = (newView) => {
+        setInProp(false); // Trigger exit
+        setTimeout(() => {
+            setCurrentView(newView);
+            setInProp(true); // Trigger enter
+        }, 100); // Match your exit timeout
+    };
     
     const navigate = useNavigate();
 
@@ -135,48 +150,38 @@ function Day() {
        }
       
 
-
-      
-
-    
-     
-     
-
-      
-    
-
-
-  
-
     return (
       
-        <div style= {{display: "flex"}} className = "day-box"> 
         
+        <div style= {{display: "flex"}} className = "day-box"> 
+         <ActionMenu currentView = {currentView} setCurrentView= {handleViewChange} />
+
             <div className = "day-header">
-            <div className= "previous-triangle" onClick ={handlePreviousDay} > </div> 
             <h3> My {month} {day}{getDayPrefix(day)} {year} </h3>
-            <div className= "next-triangle" onClick = {handleNextDay} >  </div> 
             </div>
-          
-            <div className= "article-container">
-            <article>
-            <h3  className= "day-title"> Title: { dayTitle} </h3>
 
             
-           
 
-              {parse(dayContent)}
+            <CSSTransition key={currentView} nodeRef={nodeRef} in={inProp} timeout={100} classNames="my-node">
+            <div style={{width: "100%"}} ref={nodeRef}>
+            {(() => {
+                switch (currentView) {
+                case "article":
+                  return <Article title = {dayTitle} content = {dayContent} />;
+                case "todo":
+                  return <TodosBox year ={year} month = {month} day  = {day} />;
+                default:
+                  return null;
+              }
 
-            
-            </article>
-            <Link  className="edit-entry"  to={{pathname: `edit/`}} state = {{edit_title: dayTitle , edit_content: dayContent}}>
-            <button  className= "button-38">
-         
-      Edit (Ctrl + E)
-             </button>
-             </Link>
-             </div>
-        </div>
+            })()}
+            </div>
+            </CSSTransition>
+
+          </div>
+
+
+      
 
     )
 }

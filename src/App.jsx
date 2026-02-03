@@ -30,7 +30,7 @@ function AppContent() {
     const handleKeyDown = (e) => {
       if (e.ctrlKey && e.code === 'KeyH') {
         navigate('/');
-        e.preventDefault();
+
       }
       if (e.ctrlKey && e.code === 'KeyC') {
         navigate(`/calendar/2026/${getDateInfo().currentMonth}`);
@@ -46,7 +46,7 @@ function AppContent() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home/>} />
         <Route exact path="*" element={<EmptyView/>} />
         <Route exact path="/calendar/:year/:month" element={<Calendar/>} />
         <Route exact path="/calendar/days/:year/:month/:day" element= { <Day/>}/>

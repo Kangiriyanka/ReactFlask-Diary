@@ -17,9 +17,17 @@
     border-bottom-right-radius: 0.75rem !important;
     border-top: none ;
     
-  
-  
+
 }
+ 
+.ql-cell-focused::after {
+
+    border: none;
+
+    
+
+}
+   
 
 
 .ql-editor {
@@ -43,11 +51,12 @@
 }
 
 td:hover {
-    background-color: #1e51623f !important;
+    background-color: rgba(66, 77, 80, 0.247) !important;
 }
 
 td {
-    border: 1px solid #1e51623f !important;
+    border: 1px solid var(--filled) !important;
+    padding: 0.3rem;
 
 
     .ql-cell-selected-after, .ql-cell-selected::after, .ql-cell-focused::after {
@@ -60,5 +69,19 @@ td {
     left: 0;
     background-color: rgba(21, 93, 157, 0.037);
 }
+}
+
+
+ .quill-editor hr {
+  border: none;
+  height: 2px;     
+  background-color: var(--filled);
+  margin: 16px 0;
+}
+
+ hr {
+    border: 0;
+    border-bottom: 1px dashed var(--filled);
+
 }
 
